@@ -3,6 +3,8 @@ module github.com/telman03/go-grpc
 go 1.25.0
 
 require (
+	github.com/confluentinc/confluent-kafka-go/v2 v2.14.1
+	github.com/google/uuid v1.6.0
 	google.golang.org/grpc v1.80.0
 	google.golang.org/protobuf v1.36.11
 )
