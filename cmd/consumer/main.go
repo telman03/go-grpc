@@ -30,7 +30,9 @@ func main() {
 	signalChan := make(chan os.Signal, 1)
 	signal.Notify(signalChan, syscall.SIGINT, syscall.SIGTERM)
 	
-	<- signalChan
+	<-signalChan
 	logrus.Info("Received shutdown signal, stopping consumer...")
-	logrus.Fatal(c.Stop())
+	if err := c.Stop(); err != nil {
+		logrus.Errorf("Error stopping consumer: %v", err)
+	}
 }
